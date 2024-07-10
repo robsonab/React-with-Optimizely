@@ -1,0 +1,130 @@
+body {
+    color: #666666;
+    background: #dddddd;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #030f27;
+}
+
+a {
+    color: #666666;
+    transition: 0.3s;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #fdbe33;
+    outline: none;
+    text-decoration: none !important;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    background: #fdbe33;
+    color: #121518;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 1;
+    font-size: 22px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+    z-index: 9;
+}
+
+.back-to-top:hover {
+    color: #fdbe33;
+    background: #121518;
+}
+
+.back-to-top i {
+    padding-top: 10px;
+}
+
+.btn {
+    transition: 0.3s;
+}
+
+@font-face {
+    font-family: "Flaticon";
+    src: url("./lib/flaticon/font/Flaticon.eot");
+    src:
+        url("./lib/flaticon/font/Flaticon.eot?#iefix") format("embedded-opentype"),
+        url("./lib/flaticon/font/Flaticon.woff2") format("woff2"),
+        url("./lib/flaticon/font/Flaticon.woff") format("woff"),
+        url("./lib/flaticon/font/Flaticon.ttf") format("truetype"),
+        url("./lib/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("./lib/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+    }
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 20px;
+}
+
+.flaticon-concrete:before {
+    content: "\f100";
+}
+.flaticon-worker:before {
+    content: "\f101";
+}
+.flaticon-measure:before {
+    content: "\f102";
+}
+.flaticon-building:before {
+    content: "\f103";
+}
+.flaticon-brush:before {
+    content: "\f104";
+}
+.flaticon-crane:before {
+    content: "\f105";
+}
+.flaticon-call:before {
+    content: "\f106";
+}
+.flaticon-calendar:before {
+    content: "\f107";
+}
+.flaticon-send-mail:before {
+    content: "\f108";
+}
+.flaticon-address:before {
+    content: "\f109";
+}

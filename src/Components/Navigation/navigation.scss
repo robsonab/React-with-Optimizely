@@ -1,0 +1,118 @@
+.nav-bar {
+    position: relative;
+    background: #fdbe33;
+    transition: 0.3s;
+
+    .container-fluid {
+        padding: 0;
+    }
+
+    &.nav-sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        max-width: 1366px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+    }
+
+    .navbar {
+        height: 100%;
+        background: #030f27 !important;
+    }
+
+    .dropdown-menu {
+        margin-top: 0;
+        border: 0;
+        border-radius: 0;
+        background: #f8f9fa;
+        height: 0;
+        padding: 0px;
+        overflow: hidden;
+        display: block;
+        transition: height 0.3s ease-out;
+
+        a {
+            padding: 10px;
+            &:hover {
+                color: #030f27;
+                font-weight: bold;
+                background: #fdbe33;
+                border-color: #fdbe33;
+            }
+        }
+    }
+
+    .btn {
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        border-radius: 0;
+
+        &:hover {
+            color: #030f27;
+            background: #fdbe33;
+            border-color: #fdbe33;
+        }
+    }
+
+    @media (min-width: 992px) {
+        padding: 0 75px;
+
+        &.nav-sticky {
+            padding: 0;
+        }
+
+        .navbar {
+            padding: 20px;
+        }
+
+        .navbar-brand {
+            display: none;
+        }
+
+        a.nav-link,
+        span.nav-link {
+            padding: 8px 15px;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .navbar {
+            padding: 15px;
+        }
+
+        a.nav-link,
+        span.nav-link {
+            padding: 5px;
+        }
+
+        .dropdown-menu {
+            box-shadow: none;
+        }
+
+        .btn {
+            display: none;
+        }
+    }
+}
+
+.navbar-dark {
+    .navbar-nav {
+        .nav-link,
+        .nav-link:focus,
+        .nav-link:hover,
+        .nav-link.active {
+            padding: 10px 10px 8px 10px;
+            color: #ffffff;
+
+            &:hover,
+            &.active {
+                color: #fdbe33;
+                transition: none;
+            }
+        }
+    }
+}
