@@ -1,23 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./navigation.scss";
+import { fetchData } from "../Utils/api";
 
 function Navigation() {
-  const menuItems = [
-    { href: "index.html", label: "Home" },
-    { href: "about.html", label: "About" },
-    { href: "service.html", label: "Service" },
-    { href: "team.html", label: "Team" },
-    { href: "portfolio.html", label: "Project" },
-    {
-      label: "Pages",
-      dropdown: true,
-      items: [
-        { href: "blog.html", label: "Blog Page" },
-        { href: "single.html", label: "Single Page" },
-      ],
-    },
-    { href: "contact.html", label: "Contact" },
-  ];
+  const transformMenuData = (data) => {
+    return data.map((item) => {
+      const transformedItem = {
+        href: item.url,
+        label: item.name,
+      };
+
+      if (item.subMenus && item.subMenus.length > 0) {
+        transformedItem.dropdown = true;
+        transformedItem.items = item.subMenus.map((subItem) => ({
+          href: subItem.url,
+          label: subItem.name,
+        }));
+      }
+
+      return transformedItem;
+    });
+  };
+
+  const [menuItems, setMenuItems] = useState([]);
+  const hasFetched = useRef(false);
+
+  useEffect(() => {
+    if (hasFetched.current) return;
+
+    const fetchPages = async () => {
+      try {
+        const response = await fetchData("/Navigation");
+        setMenuItems(transformMenuData(response));
+      } catch (error) {
+        throw new Error(error);
+      } finally {
+        // setLoading(false);
+      }
+    };
+
+    fetchPages();
+    hasFetched.current = true;
+  }, [menuItems]);
 
   const [openDropdown, setOpenDropdown] = useState(null);
   const handleDropdownClick = (event, index) => {
