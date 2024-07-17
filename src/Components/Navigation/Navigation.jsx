@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import "./navigation.scss";
 import { fetchData } from "../Utils/api";
 
@@ -61,9 +62,9 @@ function Navigation() {
     <div className="nav-bar">
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-          <a href="index.html" className="navbar-brand">
+          <NavLink to="/" className="navbar-brand">
             MENU
-          </a>
+          </NavLink>
           <button
             type="button"
             className="navbar-toggler"
@@ -94,20 +95,24 @@ function Navigation() {
                       }`}
                     >
                       {item.items.map((subItem, subIndex) => (
-                        <a
+                        <NavLink
                           key={subIndex}
-                          href={subItem.href}
+                          to={subItem.href}
                           className="dropdown-item"
                         >
                           {subItem.label}
-                        </a>
+                        </NavLink>
                       ))}
                     </div>
                   </div>
                 ) : (
-                  <a key={index} href={item.href} className="nav-item nav-link">
+                  <NavLink
+                    key={index}
+                    to={item.href}
+                    className="nav-item nav-link"
+                  >
                     {item.label}
-                  </a>
+                  </NavLink>
                 )
               )}
             </div>
