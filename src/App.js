@@ -1,18 +1,24 @@
-import Header from "./Components/Header/Header";
-import Navigation from "./Components/Navigation/Navigation";
-import Footer from "./Components/Footer/Footer";
 import "./scss/main.scss";
-import Home from "./Pages/Home";
+import HomePage from "./Pages/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./Root";
+
+import AboutPage from "./Pages/About";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    // errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about", element: <AboutPage /> },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Navigation />
-      <Home />
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

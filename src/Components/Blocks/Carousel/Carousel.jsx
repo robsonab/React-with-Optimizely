@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./carousel.scss";
 import CarouselItem from "./CarouselItem";
 
@@ -31,7 +31,7 @@ const Carousel = () => {
     setCurrentIndex(currentIndex === 0 ? items.length - 1 : currentIndex - 1);
   };
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (currentIndex === items.length - 1) {
       setIsTransitionEnabled(false);
       setTimeout(() => {
@@ -41,17 +41,17 @@ const Carousel = () => {
     } else {
       setCurrentIndex(currentIndex + 1);
     }
-  };
+  }, [currentIndex, items.length]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     nextSlide();
-  //   }, 5000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
 
-  //   return () => {
-  //     clearInterval(interval); // Clear the interval when the component unmounts
-  //   };
-  // }, [currentIndex]);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [nextSlide]);
 
   return (
     <div
@@ -63,7 +63,6 @@ const Carousel = () => {
       <div className="app-carousel-arrow app-left-arrow" onClick={prevSlide}>
         &#9664;
       </div>
-      {currentIndex} - {isTransitionEnabled ? "true" : "false"}
       <div className="app-carousel-inner">
         <div
           className="app-carousel-content"

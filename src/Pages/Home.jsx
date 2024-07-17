@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "../Components/Blocks/Carousel/Carousel";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Carousel />
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
