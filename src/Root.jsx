@@ -8,7 +8,7 @@ function RootLayout() {
     <>
       <Header />
       <Navigation />
-      <main>
+      <main style={{ minHeight: "40em" }}>
         <Outlet />
       </main>
       <Footer />

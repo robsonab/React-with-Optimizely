@@ -3,8 +3,6 @@ import HomePage from "./Pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Root";
 
-import AboutPage from "./Pages/About";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "/:lang", element: <HomePage /> },
-      { path: "/:lang/about", element: <AboutPage /> },
+      { path: "/:lang/:pageName", element: <HomePage /> },
     ],
   },
 ]);
